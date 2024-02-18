@@ -1,0 +1,322 @@
+local LCplayer = game.Players.LocalPlayer
+
+local SGui = Instance.new("ScreenGui")
+SGui.Parent = LCplayer:WaitForChild("PlayerGui")
+SGui.ResetOnSpawn = false
+
+local Frame = Instance.new("Frame")
+Frame.Parent = SGui
+Frame.Position = UDim2.new(0.391, 0, 0.382, 0)
+Frame.Size = UDim2.new(0, 280, 0, 167)
+Frame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Frame.Active = true
+Frame.Draggable = true
+Frame.BorderSizePixel = 0
+
+local Uipenis4 = Instance.new("UICorner")
+Uipenis4.Parent = Frame
+
+local Uibambam = Instance.new("UIStroke")
+Uibambam.Parent = Frame
+Uibambam.Thickness = 4.9
+Uibambam.Transparency = 0.24
+
+local TextBox = Instance.new("TextBox")
+TextBox.Parent = Frame
+TextBox.Size = UDim2.new(0, 272, 0, 50)
+TextBox.Position = UDim2.new(0.014, 0, 0.302, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+TextBox.TextSize = 18
+TextBox.TextColor3 = Color3.fromRGB(256, 144, 17)
+TextBox.Text = "Write Nickname Target"
+TextBox.BorderSizePixel = 0
+
+local Uipenis3 = Instance.new("UICorner")
+Uipenis3.Parent = TextBox
+
+local Button = Instance.new("TextButton")
+Button.Parent = Frame
+Button.Size = UDim2.new(0, 254, 0, 44)
+Button.Position = UDim2.new(0.045, 0, 0.665, 0)
+Button.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button.TextColor3 = Color3.fromRGB(255, 144, 17)
+Button.TextSize = 18
+Button.Text = "Teleport"
+Button.BorderSizePixel = 0
+
+local Uipenis2 = Instance.new("UICorner")
+Uipenis2.Parent = Button
+
+local ButtonSettings = Instance.new("ImageButton")
+ButtonSettings.Parent = Frame
+ButtonSettings.Size = UDim2.new(0, 25, 0, 26)
+ButtonSettings.Position = UDim2.new(0.726, 0,-0.006, 0)
+ButtonSettings.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+ButtonSettings.Image = "http://www.roblox.com/asset/?id=14306059173"
+ButtonSettings.ImageColor3 = Color3.fromRGB(255, 144, 17)
+ButtonSettings.BorderSizePixel = 0
+
+local Uipenis1 = Instance.new("UICorner")
+Uipenis1.Parent = ButtonSettings
+
+local MinusButton = Instance.new("ImageButton")
+MinusButton.Parent = Frame
+MinusButton.Size = UDim2.new(0, 25, 0, 26)
+MinusButton.Position = UDim2.new(0.819, 0,-0.006, 0)
+MinusButton.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+MinusButton.Image = "http://www.roblox.com/asset/?id=11622919444"
+MinusButton.ImageColor3 = Color3.fromRGB(255, 144, 17)
+MinusButton.BorderSizePixel = 0
+
+local Uidh = Instance.new("UICorner")
+Uidh.Parent = MinusButton
+
+
+local FrameSettings = Instance.new("Frame")
+FrameSettings.Parent = Frame
+FrameSettings.Size = UDim2.new(0, 138, 0, 148)
+FrameSettings.Position = UDim2.new(1, 5, 0, 0)
+FrameSettings.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+FrameSettings.BorderSizePixel = 0
+
+local Uipenis5 = Instance.new("UICorner")
+Uipenis5.Parent = FrameSettings
+
+
+local CrossButton = Instance.new("ImageButton")
+CrossButton.Parent = Frame
+CrossButton.Size = UDim2.new(0, 25, 0, 26)
+CrossButton.Position = UDim2.new(0.911, 0, -0.006, 0)
+CrossButton.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+CrossButton.Image = "http://www.roblox.com/asset/?id=264596039"
+CrossButton.ImageColor3 = Color3.fromRGB(255, 144, 17)
+CrossButton.BorderSizePixel = 0
+
+local Uipenis = Instance.new("UICorner")
+Uipenis.Parent = CrossButton
+
+
+local TextBoxX = Instance.new("TextBox")
+TextBoxX.Parent = FrameSettings
+TextBoxX.Size = UDim2.new(0, 30, 0, 30)
+TextBoxX.Position = UDim2.new(0.072, 0, 0.068, 0)
+TextBoxX.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+TextBoxX.TextColor3 = Color3.fromRGB(255, 144, 17)
+TextBoxX.Text = "0"
+TextBoxX.TextSize = 13
+TextBoxX.BorderSizePixel = 0
+
+local uipep = Instance.new("UICorner")
+uipep.Parent = TextBoxX
+
+local TextBoxY = Instance.new("TextBox")
+TextBoxY.Parent = FrameSettings
+TextBoxY.Size = UDim2.new(0, 30, 0, 30)
+TextBoxY.Position = UDim2.new(0.391, 0, 0.068, 0)
+TextBoxY.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+TextBoxY.TextColor3 = Color3.fromRGB(255, 144, 17)
+TextBoxY.Text = "0"
+TextBoxY.TextSize = 13
+TextBoxY.BorderSizePixel = 0
+
+local uipep1 = Instance.new("UICorner")
+uipep1.Parent = TextBoxY
+
+local TextBoxZ = Instance.new("TextBox")
+TextBoxZ.Parent = FrameSettings
+TextBoxZ.Size = UDim2.new(0, 30, 0, 30)
+TextBoxZ.Position = UDim2.new(0.703, 0, 0.068, 0)
+TextBoxZ.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+TextBoxZ.TextColor3 = Color3.fromRGB(255, 144, 17)
+TextBoxZ.Text = "-3"
+TextBoxZ.TextSize = 13
+TextBoxZ.BorderSizePixel = 0
+
+local uipep2 = Instance.new("UICorner")
+uipep2.Parent = TextBoxZ
+
+local TextX = Instance.new("TextLabel")
+TextX.Parent = TextBoxX
+TextX.Size = UDim2.new(0, 30, 0, 23)
+TextX.Position = UDim2.new(0, 0, 1, 0)
+TextX.BackgroundTransparency = 1
+TextX.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextX.TextSize = 12
+TextX.Text = "X"
+TextX.BorderSizePixel = 0
+
+
+local TextY = Instance.new("TextLabel")
+TextY.Parent = TextBoxY
+TextY.Size = UDim2.new(0, 30, 0, 23)
+TextY.Position = UDim2.new(0, 0, 1, 0)
+TextY.BackgroundTransparency = 1
+TextY.TextColor3 = Color3.fromRGB(0, 255, 21)
+TextY.TextSize = 12
+TextY.Text = "Y"
+TextY.BorderSizePixel = 0
+
+
+local TextZ = Instance.new("TextLabel")
+TextZ.Parent = TextBoxZ
+TextZ.Size = UDim2.new(0, 30, 0, 23)
+TextZ.Position = UDim2.new(0, 0, 1, 0)
+TextZ.BackgroundTransparency = 1
+TextZ.TextColor3 = Color3.fromRGB(29, 21, 255)
+TextZ.TextSize = 12
+TextZ.Text = "Z"
+TextZ.BorderSizePixel = 0
+
+
+local CycleButton = Instance.new("ImageButton")
+CycleButton.Parent = FrameSettings
+CycleButton.Size = UDim2.new(0, 40, 0, 40)
+CycleButton.Position = UDim2.new(0.072, 0, 0.48, 0)
+CycleButton.Image = "http://www.roblox.com/asset/?id=12690727184"
+CycleButton.ImageColor3 = Color3.fromRGB(255, 144, 17)
+CycleButton.ImageTransparency = 1
+CycleButton.BorderSizePixel = 0
+CycleButton.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+
+local uixui = Instance.new("UICorner")
+uixui.Parent = CycleButton
+
+local CycleLabel = Instance.new("TextLabel")
+CycleLabel.Parent = CycleButton
+CycleLabel.Size = UDim2.new(0, 73, 0, 40)
+CycleLabel.Position = UDim2.new(1, 0, 0, 0)
+CycleLabel.BackgroundTransparency = 1
+CycleLabel.TextColor3 = Color3.fromRGB(255, 144, 17)
+CycleLabel.TextSize = 12
+CycleLabel.Text = "Cycle Tp"
+CycleLabel.BorderSizePixel = 0
+
+local textboxTpPerTime = Instance.new("TextBox")
+textboxTpPerTime.Parent = CycleButton
+textboxTpPerTime.Size = UDim2.new(0, 40, 0, 25)
+textboxTpPerTime.Position = UDim2.new(-0.003, 0, 1.131, 0)
+textboxTpPerTime.TextColor3 = Color3.fromRGB(255, 144, 17)
+textboxTpPerTime.TextSize = 12
+textboxTpPerTime.Text = "0.1"
+textboxTpPerTime.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+textboxTpPerTime.BorderSizePixel = 0
+
+local uixui1 = Instance.new("UICorner")
+uixui1.Parent = textboxTpPerTime
+
+local pptimeLabel = Instance.new("TextLabel")
+pptimeLabel.Parent = textboxTpPerTime
+pptimeLabel.Size = UDim2.new(0, 73, 0, 40)
+pptimeLabel.Position = UDim2.new(1.15, 0, -0.28, 0)
+pptimeLabel.BackgroundTransparency = 1
+pptimeLabel.TextColor3 = Color3.fromRGB(255, 144, 17)
+pptimeLabel.TextSize = 11
+pptimeLabel.Text = "Tp per time"
+
+local labelXhook = Instance.new("TextLabel")
+labelXhook.Parent = Frame
+labelXhook.Size = UDim2.new(0, 188, 0, 32)
+labelXhook.Position = UDim2.new(0.003, 0, -0.018, 0)
+labelXhook.BackgroundTransparency = 1
+labelXhook.TextColor3 = Color3.fromRGB(255, 144, 17)
+labelXhook.TextSize = 17
+labelXhook.Text = "Xhook Teleporter"
+
+local ByLabel = Instance.new("TextLabel")
+ByLabel.Parent = Frame
+ByLabel.Size = UDim2.new(0, 188, 0, 32)
+ByLabel.Position = UDim2.new(-0.155, 0, 0.084, 0)
+ByLabel.BackgroundTransparency = 1
+ByLabel.TextColor3 = Color3.fromRGB(255, 144, 17)
+ByLabel.TextSize = 12
+ByLabel.Text = "By An1mk0"
+
+local Buttonbambam = Instance.new("TextButton")
+Buttonbambam.Parent = SGui
+Buttonbambam.Size = UDim2.new(0, 100, 0, 100)
+Buttonbambam.Position = UDim2.new(0, 0, 0.421, 0)
+Buttonbambam.BackgroundColor3 = Color3.fromRGB(99, 99, 99)
+Buttonbambam.TextColor3 = Color3.fromRGB(255, 144, 17)
+Buttonbambam.TextSize = 30
+Buttonbambam.Text = "Open"
+Buttonbambam.Visible = false
+
+local Uicornerbb = Instance.new("UICorner")
+Uicornerbb.Parent = Buttonbambam
+
+
+
+
+
+
+
+
+FrameSettings.Visible = false
+
+local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local cycle = false
+local knopkawork = false
+local BamBamWhile = false
+
+CrossButton.MouseButton1Click:Connect(function()
+	SGui:Destroy()
+end)
+
+MinusButton.MouseButton1Click:Connect(function()
+Frame.Visible = false
+Buttonbambam.Visible = true
+end)
+
+Buttonbambam.MouseButton1Click:Connect(function()
+Frame.Visible = true
+Buttonbambam.Visible = false
+end)
+
+local function teleportU()
+	local GayTarget = game:GetService("Players"):FindFirstChild(TextBox.Text)
+	local HRP = LC:FindFirstChild("HumanoidRootPart")
+	local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
+	if HRP and targetHRP then
+		HRP.CFrame = targetHRP.CFrame * CFrame.new(TextBoxX.Text, TextBoxY.Text, TextBoxZ.Text) 
+	end
+end
+
+ButtonSettings.MouseButton1Click:Connect(function()
+	if knopkawork == true then
+		FrameSettings.Visible = false
+		knopkawork = false
+	else
+	   knopkawork = true
+		FrameSettings.Visible = true
+	end
+end)
+
+CycleButton.MouseButton1Click:Connect(function()
+if cycle == true then
+	cycle = false
+    BamBamWhile = false
+	CycleButton.ImageTransparency = 1
+	
+else
+	CycleButton.ImageTransparency = 0
+	cycle = true
+	
+		if cycle == true then
+			BamBamWhile = true
+			while BamBamWhile == true do
+				teleportU() 
+				wait(textboxTpPerTime.Text)
+			end
+		end
+end
+end)
+
+
+
+
+Button.MouseButton1Click:Connect(function()
+teleportU()
+end)
+
+--by An1mk0
+
