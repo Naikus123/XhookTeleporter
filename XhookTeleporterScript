@@ -273,8 +273,9 @@ Buttonbambam.Visible = false
 end)
 
 local function teleportU()
-	local GayTarget = game:GetService("Players"):FindFirstChild(TextBox.Text)
-	local HRP = LC:FindFirstChild("HumanoidRootPart")
+	local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	local GayTarget = game:GetService("Players"):WaitForChild(TextBox.Text)
+	local HRP = LC:WaitForChild("HumanoidRootPart")
 	local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
 	if HRP and targetHRP then
 		HRP.CFrame = targetHRP.CFrame * CFrame.new(TextBoxX.Text, TextBoxY.Text, TextBoxZ.Text) 
@@ -318,5 +319,4 @@ Button.MouseButton1Click:Connect(function()
 teleportU()
 end)
 
---by An1mk0
 
