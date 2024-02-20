@@ -1,3 +1,4 @@
+
 local LCplayer = game.Players.LocalPlayer
 
 local SGui = Instance.new("ScreenGui")
@@ -229,7 +230,7 @@ ByLabel.Position = UDim2.new(-0.155, 0, 0.084, 0)
 ByLabel.BackgroundTransparency = 1
 ByLabel.TextColor3 = Color3.fromRGB(255, 144, 17)
 ByLabel.TextSize = 12
-ByLabel.Text = "By An1mk0"
+ByLabel.Text = "by An1mk0"
 
 local Buttonbambam = Instance.new("TextButton")
 Buttonbambam.Parent = SGui
@@ -244,15 +245,15 @@ Buttonbambam.Visible = false
 local Uicornerbb = Instance.new("UICorner")
 Uicornerbb.Parent = Buttonbambam
 
-
-
-
-
-
-
+FrameSettings.Transparency = 0
 
 FrameSettings.Visible = false
+----------------------------------------------------------------------------------------GUI
 
+
+
+
+--------------------------------------------------------------------------------------------
 local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local cycle = false
 local knopkawork = false
@@ -272,25 +273,27 @@ Frame.Visible = true
 Buttonbambam.Visible = false
 end)
 
-local function teleportU()
-	local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	local GayTarget = game:GetService("Players"):WaitForChild(TextBox.Text)
-	local HRP = LC:WaitForChild("HumanoidRootPart")
-	local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
-	if HRP and targetHRP then
-		HRP.CFrame = targetHRP.CFrame * CFrame.new(TextBoxX.Text, TextBoxY.Text, TextBoxZ.Text) 
-	end
-end
-
 ButtonSettings.MouseButton1Click:Connect(function()
 	if knopkawork == true then
 		FrameSettings.Visible = false
 		knopkawork = false
 	else
-	   knopkawork = true
+		knopkawork = true
 		FrameSettings.Visible = true
 	end
 end)
+
+local function teleportU()
+	local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	local GayTarget = game:GetService("Players"):WaitForChild(TextBox.Text)
+	local HRP = LC:WaitForChild("HumanoidRootPart")
+	local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
+	
+		if HRP and targetHRP then
+			HRP.CFrame = targetHRP.CFrame * CFrame.new(TextBoxX.Text, TextBoxY.Text, TextBoxZ.Text) 
+		end
+end
+
 
 CycleButton.MouseButton1Click:Connect(function()
 if cycle == true then
@@ -317,6 +320,52 @@ end)
 
 Button.MouseButton1Click:Connect(function()
 teleportU()
+end)
+
+
+	
+
+local LocalPlayer = game.Players.LocalPlayer.Character
+
+
+	local sphere = Instance.new("Part")
+	sphere.Name = "Gay"
+	sphere.Parent = workspace
+	sphere.CanCollide = false
+	sphere.Shape = Enum.PartType.Ball
+	sphere.Size = Vector3.new(30, 30, 30)
+	sphere.Transparency = 0.80
+
+
+
+
+
+local Weld = Instance.new("Weld")
+Weld.Parent = sphere
+Weld.Part0 = sphere
+Weld.Part1 = LocalPlayer.HumanoidRootPart
+
+
+
+sphere.Touched:Connect(function(part)
+	wait(0.7)
+	if part.Name == "HumanoidRootPart" then
+		local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+		local Stariy = LC.HumanoidRootPart.CFrame
+		if part.Parent.Name ~= "Player1" then
+		local GayTarget = game:GetService("Players"):WaitForChild(part.Parent.Name)
+		local HRP = LC:WaitForChild("HumanoidRootPart")
+		local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
+		print(Stariy)
+		
+		if HRP and targetHRP then
+			HRP.CFrame = targetHRP.CFrame 
+		end
+		wait(0.6)
+		HRP.CFrame = Stariy
+		end
+	end
+	
 end)
 
 
