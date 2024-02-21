@@ -1,3 +1,4 @@
+wait(10)
 local LCplayer = game.Players.LocalPlayer
 
 local SGui = Instance.new("ScreenGui")
@@ -366,21 +367,27 @@ local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 local char = lp.Character or lp.CharacterAdded:Wait()
 local hrp = lp.Character:WaitForChild("HumanoidRootPart"); task.wait();
+
+
+
 sphere.Touched:Connect(function(part)
-	wait(0.7)
+	wait(1)
 	if part.Name == "HumanoidRootPart" then
 		local BAV;
 		local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 		local Stariy = LC.HumanoidRootPart.CFrame
-		if part.Parent.Name ~= "Player1" then
 		local GayTarget = game:GetService("Players"):WaitForChild(part.Parent.Name)
 		local HRP = LC:WaitForChild("HumanoidRootPart")
-		local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
+		local targetHRP = GayTarget.Character:FindFirstChild("HumanoidRootPart")
+		
 		if HRP and targetHRP then
 			HRP.CFrame = targetHRP.CFrame 
+			print(targetHRP)
 			--Vklucatsa
+			wait(1)
 				switch = true
 				print("Activated")
+				wait(1)
 				for _,p in char:GetDescendants() do
 					if p:IsA("BasePart") then
 						p.CustomPhysicalProperties = PhysicalProperties.new(math.huge, 0.3, 0.5)
@@ -390,25 +397,33 @@ sphere.Touched:Connect(function(part)
 				end
 				BAV = Instance.new("BodyAngularVelocity", hrp); BAV.MaxTorque = Vector3.new(0,math.huge,0); BAV.P = math.huge; BAV.AngularVelocity = Vector3.new(0,99999,0)
 		end
-		wait(0.6)
+	end	
+end)
+
+		
+sphere.TouchEnded:Connect(function(part)
+	local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	local Stariy = LC.HumanoidRootPart.CFrame
 		HRP.CFrame = Stariy
 		--Viklucatsa
+		
 			switch = false
 			if hrp:FindFirstChild("BodyAngularVelocity") then
 				hrp:FindFirstChild("BodyAngularVelocity"):Destroy()
 			end
 			print("Deactivated")
-			wait(1)
+			
 			for _,p in char:GetDescendants() do
 				if p:IsA("BasePart") and p.CanCollide == true then
 					p.CanCollide = true
 					p.Massless = false
 					p.CustomPhysicalProperties = PhysicalProperties.new(0.7, 0.3, 0.5)
+					
 				end
-			end
-		end
-	end
-end)
+	       end
+	
+end) 
+
 
 
 game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Died:Connect(function()
