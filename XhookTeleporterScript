@@ -1,4 +1,3 @@
-
 local LCplayer = game.Players.LocalPlayer
 
 local SGui = Instance.new("ScreenGui")
@@ -242,6 +241,19 @@ Buttonbambam.TextSize = 30
 Buttonbambam.Text = "Open"
 Buttonbambam.Visible = false
 
+local ButtonFling = Instance.new("TextButton")
+ButtonFling.Parent = SGui
+ButtonFling.Size = UDim2.new(0, 100, 0, 100)
+ButtonFling.Position = UDim2.new(0.2, 0, 0.421, 0)
+ButtonFling.BackgroundColor3 = Color3.fromRGB(99, 99, 99)
+ButtonFling.TextColor3 = Color3.fromRGB(255, 144, 17)
+ButtonFling.TextSize = 30
+ButtonFling.Text = "GayFling"
+
+local Uicornergay = Instance.new("UICorner", ButtonFling)
+
+
+
 local Uicornerbb = Instance.new("UICorner")
 Uicornerbb.Parent = Buttonbambam
 
@@ -289,22 +301,20 @@ local function teleportU()
 	local HRP = LC:WaitForChild("HumanoidRootPart")
 	local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
 	
-		if HRP and targetHRP then
-			HRP.CFrame = targetHRP.CFrame * CFrame.new(TextBoxX.Text, TextBoxY.Text, TextBoxZ.Text) 
-		end
+	if HRP and targetHRP then
+		HRP.CFrame = targetHRP.CFrame * CFrame.new(TextBoxX.Text, TextBoxY.Text, TextBoxZ.Text) 
+	end
 end
 
 
 CycleButton.MouseButton1Click:Connect(function()
-if cycle == true then
-	cycle = false
-    BamBamWhile = false
-	CycleButton.ImageTransparency = 1
-	
-else
-	CycleButton.ImageTransparency = 0
-	cycle = true
-	
+	if cycle == true then
+		cycle = false
+	    BamBamWhile = false
+		CycleButton.ImageTransparency = 1
+	else
+		CycleButton.ImageTransparency = 0
+		cycle = true
 		if cycle == true then
 			BamBamWhile = true
 			while BamBamWhile == true do
@@ -312,10 +322,8 @@ else
 				wait(textboxTpPerTime.Text)
 			end
 		end
-end
+	end
 end)
-
-
 
 
 Button.MouseButton1Click:Connect(function()
@@ -326,17 +334,20 @@ end)
 	
 
 local LocalPlayer = game.Players.LocalPlayer.Character
+local RS = game:GetService("RunService")
+local HRP = LocalPlayer.HumanoidRootPart
 
-
-	local sphere = Instance.new("Part")
-	sphere.Name = "Gay"
-	sphere.Parent = workspace
-	sphere.CanCollide = false
-	sphere.Shape = Enum.PartType.Ball
-	sphere.Size = Vector3.new(30, 30, 30)
-	sphere.Transparency = 0.80
-
-
+ 
+local sphere = Instance.new("Part")
+sphere.Name = "Gay"
+sphere.Parent = workspace
+sphere.CanCollide = false
+sphere.Shape = Enum.PartType.Ball
+sphere.Size = Vector3.new(30, 30, 30)
+sphere.Transparency = 0.80
+sphere.Color = Color3.fromRGB(0, 165, 43)
+sphere.Material = "ForceField"
+sphere.CFrame = LocalPlayer.HumanoidRootPart.CFrame
 
 
 
@@ -344,28 +355,91 @@ local Weld = Instance.new("Weld")
 Weld.Parent = sphere
 Weld.Part0 = sphere
 Weld.Part1 = LocalPlayer.HumanoidRootPart
+  
+local penis;
+local switch;
+local target;
 
-
-
+local UIS = game:GetService("UserInputService")
+local RS = game:GetService("RunService")
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+local char = lp.Character or lp.CharacterAdded:Wait()
+local hrp = lp.Character:WaitForChild("HumanoidRootPart"); task.wait();
 sphere.Touched:Connect(function(part)
 	wait(0.7)
 	if part.Name == "HumanoidRootPart" then
+		local BAV;
 		local LC = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 		local Stariy = LC.HumanoidRootPart.CFrame
 		if part.Parent.Name ~= "Player1" then
 		local GayTarget = game:GetService("Players"):WaitForChild(part.Parent.Name)
 		local HRP = LC:WaitForChild("HumanoidRootPart")
 		local targetHRP = GayTarget.Character:WaitForChild("HumanoidRootPart")
-		print(Stariy)
-		
 		if HRP and targetHRP then
 			HRP.CFrame = targetHRP.CFrame 
+			--Vklucatsa
+				switch = true
+				print("Activated")
+				for _,p in char:GetDescendants() do
+					if p:IsA("BasePart") then
+						p.CustomPhysicalProperties = PhysicalProperties.new(math.huge, 0.3, 0.5)
+						p.CanCollide = false
+						p.Massless = true
+					end
+				end
+				BAV = Instance.new("BodyAngularVelocity", hrp); BAV.MaxTorque = Vector3.new(0,math.huge,0); BAV.P = math.huge; BAV.AngularVelocity = Vector3.new(0,99999,0)
 		end
 		wait(0.6)
 		HRP.CFrame = Stariy
+		--Viklucatsa
+			switch = false
+			if hrp:FindFirstChild("BodyAngularVelocity") then
+				hrp:FindFirstChild("BodyAngularVelocity"):Destroy()
+			end
+			print("Deactivated")
+			wait(1)
+			for _,p in char:GetDescendants() do
+				if p:IsA("BasePart") and p.CanCollide == true then
+					p.CanCollide = true
+					p.Massless = false
+					p.CustomPhysicalProperties = PhysicalProperties.new(0.7, 0.3, 0.5)
+				end
+			end
 		end
 	end
-	
 end)
 
 
+game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Died:Connect(function()
+	Weld:Destroy()
+	sphere:Destroy()
+	if LocalPlayer.Humanoid.Health > 0 then
+		local LPchar = game.Players.LocalPlayer.Character
+		local sphere = Instance.new("Part")
+		sphere.Name = "Gay"
+		sphere.Parent = workspace
+		sphere.CanCollide = false
+		sphere.Shape = Enum.PartType.Ball
+		sphere.Size = Vector3.new(30, 30, 30)
+		sphere.Transparency = 0.80
+		sphere.Color = Color3.fromRGB(0, 165, 43)
+		sphere.Material = "ForceField"
+		sphere.CFrame = LPchar.HumanoidRootPart.CFrame
+		
+		local Weld = Instance.new("Weld")
+		Weld.Parent = sphere
+		Weld.Part0 = sphere
+		Weld.Part1 = LPchar.HumanoidRootPart
+	end
+end)	
+
+RS.Stepped:Connect(function()
+	if switch then
+		for _,p in char:GetDescendants() do
+			if p:IsA("BasePart") and p.CanCollide == true then
+				p.CanCollide = false
+			end
+		end
+	end
+end)
